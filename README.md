@@ -22,5 +22,7 @@ $ ionic cordova platform add ios
 $ ionic cordova run ios
 ```
 
+Penis
+
 Substitute ios for android if not on a Mac.
 
