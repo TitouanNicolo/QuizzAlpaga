@@ -1,8 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { NavController, IonicPage } from 'ionic-angular';
 import { GameService } from './game.service';
-
-
+import { HomePage } from '../home/home';
+@IonicPage()
 @Component({
   selector: 'page-game',
   templateUrl: 'game.html',
@@ -33,13 +33,11 @@ export class GamePage {
     this.compteur++;
     this.question = this.questions.find(item => item.id === this.compteur);
     //console.log(this.questions.length+ " zzzz " +  this.compteur);
-
-   
     
     if (this.compteur > this.questions.length) {
       console.log('Je passe if');
        console.log(this.questions.length+ " zzzz " +  this.compteur);
-        this.nav.push("Home");
+       this.nav.push(HomePage);
     }
   }
 
