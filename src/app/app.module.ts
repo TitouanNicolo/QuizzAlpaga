@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { ResultPage } from '../pages/result/result';
 import { GamePage } from '../pages/game/game';
 import {AppSettings } from './app.settings';
 
@@ -16,7 +16,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
+    ResultPage,
     GamePage
   ],
   imports: [
@@ -28,7 +28,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
+    ResultPage,
     GamePage
   ],
   providers: [

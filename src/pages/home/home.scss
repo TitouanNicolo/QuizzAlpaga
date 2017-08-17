@@ -1,3 +1,15 @@
-page-home {
+#pageHome {
+background: url("/assets/images/home.gif") no-repeat;
+background-attachment: fixed;
+background-position: center; 
+background-size: cover;
+}
 
+#home-button{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }

@@ -9,7 +9,7 @@ constructor(private http: Http){
 
 findAll(){
     console.log("Je passe");
-        return this.http.get(AppSettings.API + 'questions')
+        return this.http.get(AppSettings.API + 'Questions')
         .toPromise()
         .then(
          response =>response.json(),

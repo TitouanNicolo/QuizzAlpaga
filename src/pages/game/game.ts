@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, IonicPage } from 'ionic-angular';
+import { NavController, IonicPage, AlertController } from 'ionic-angular';
 import { GameService } from './game.service';
-import { HomePage } from '../home/home';
+import { ResultPage } from '../result/result';
+
 @IonicPage()
 @Component({
   selector: 'page-game',
@@ -12,18 +13,19 @@ export class GamePage {
   private questions: any;
   private question: any;
   compteur: number = 0;
-  compteurScor: number;
+  compteurScore: number = 0;
 
 
-  constructor(public _Questions: GameService, public nav: NavController) {
+  constructor(public _Questions: GameService, public nav: NavController ,private alertCtrl: AlertController) {
 
   }
 
   ngOnInit() {
     this._Questions.findAll().then(res => {
       this.questions = res;
+
       this.getCurrentQuestion();
-      console.log(this.question);
+      console.log(this.question + "C'est la question");
       
     });
   }
@@ -37,7 +39,7 @@ export class GamePage {
     if (this.compteur > this.questions.length) {
       console.log('Je passe if');
        console.log(this.questions.length+ " zzzz " +  this.compteur);
-       this.nav.push(HomePage);
+       this.nav.push(ResultPage, {key:this.compteurScore});
     }
   }
 
@@ -46,9 +48,21 @@ export class GamePage {
     console.log(this.question.rightAnswer);
 
     if (this.question.rightAnswer === id) {
-      alert("Bonne réponse");
+      let alert = this.alertCtrl.create({
+        title: 'Bonne réponse',
+        subTitle: 'Bien joué',
+        buttons: ['Fermer']
+      });
+      alert.present();
+      this.compteurScore += 666;
+     
     } else {
-      alert("Mauvaise réponse");
+      let alert = this.alertCtrl.create({
+        title: 'Mauvaise réponse',
+        subTitle: 'Noob',
+        buttons: ['Fermer']
+      });
+      alert.present();
     }
     this.getCurrentQuestion();
 
