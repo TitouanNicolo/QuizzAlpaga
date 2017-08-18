@@ -33,7 +33,7 @@ export class GamePage {
   getCurrentQuestion() {
 
     this.compteur++;
-    this.question = this.questions.find(item => item.id === this.compteur);
+    this.question = this.questions.find(item => item.questionId === this.compteur);
     //console.log(this.questions.length+ " zzzz " +  this.compteur);
     
     if (this.compteur > this.questions.length) {
