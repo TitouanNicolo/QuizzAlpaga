@@ -2,10 +2,12 @@
 
 <ion-content padding id="pageResult">
 <div class="filter"> 
-        <p class="result"> Bravo tu as accumulé {{score}} points.</p>
+
+        <p *ngIf="{{score}} > 1"  class="result"> Bravo tu as réussi en {{score}} coup(s).</p>
+        <p *ngIf="{{score}} == 1"  class="result"> Bravo tu as réussi en {{score}} coup.</p>
 <p class="result"> Tu peux prétendre à devenir éleveur d'Alpaga</p>
 </div>
-<button id="home-button" ion-button color="positive"  on-click="goToGame()">
+<button id="home-button" ion-button round outline  on-click="goToGame()">
         Rejouer !!! 
      </button>
 

@@ -13,7 +13,7 @@ export class GamePage {
   private questions: any;
   private question: any;
   compteur: number = 0;
-  compteurScore: number = 0;
+  compteurScore: number = 1;
 
 
   constructor(public _Questions: GameService, public nav: NavController ,private alertCtrl: AlertController) {
@@ -54,20 +54,21 @@ export class GamePage {
         buttons: ['Fermer']
       });
       alert.present();
-      this.compteurScore += 666;
+      
      
     } else {
       let alert = this.alertCtrl.create({
         title: 'Mauvaise réponse',
-        subTitle: 'Noob',
+        subTitle: 'Tu reviens à la case départ',
         buttons: ['Fermer']
       });
       alert.present();
+      this.compteurScore += 1;
+      this.compteur = 0;//Retour à la première question
     }
     this.getCurrentQuestion();
 
   }
-
 }
 
 
