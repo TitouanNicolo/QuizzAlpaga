@@ -1,8 +1,16 @@
 @import url("https://fonts.googleapis.com/css?family=Dosis");
 
 
-#pageResult {
+#pageResult1 {
     background: url("../assets/images/end.gif") no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+}
+
+#pageResult2 {
+    background: url("../assets/images/ted.gif") no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;

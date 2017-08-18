@@ -1,14 +1,24 @@
+<ion-content padding id="pageResult1" *ngIf="score > 1">
+        <div class="filter">
 
 
-<ion-content padding id="pageResult">
-<div class="filter"> 
+                <p class="result"> Bravo tu as réussi en {{score}} coup.</p>
+                <p class="result"> Tu peux prétendre à devenir éleveur d'Alpaga</p>
+        </div>
+        <button id="home-button" ion-button round on-click="goToGame()">
+                Rejouer !!! 
+        </button>
 
-        <p *ngIf="{{score}} > 1"  class="result"> Bravo tu as réussi en {{score}} coup(s).</p>
-        <p *ngIf="{{score}} == 1"  class="result"> Bravo tu as réussi en {{score}} coup.</p>
-<p class="result"> Tu peux prétendre à devenir éleveur d'Alpaga</p>
-</div>
-<button id="home-button" ion-button round outline  on-click="goToGame()">
-        Rejouer !!! 
-     </button>
+</ion-content>
+
+<ion-content padding id="pageResult2" *ngIf="score == 1">
+        <div class="filter">
+
+                <p class="result"> Bravo tu as réussi en {{score}} coup.</p>
+                <p class="result"> Tu peux prétendre à devenir éleveur d'Alpaga</p>
+        </div>
+        <button id="home-button" ion-button round on-click="goToGame()">
+                Rejouer !!! 
+        </button>
 
 </ion-content>

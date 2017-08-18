@@ -16,7 +16,7 @@ export class GamePage {
   compteurScore: number = 1;
 
 
-  constructor(public _Questions: GameService, public nav: NavController ,private alertCtrl: AlertController) {
+  constructor(public _Questions: GameService, public nav: NavController, private alertCtrl: AlertController) {
 
   }
 
@@ -26,7 +26,7 @@ export class GamePage {
 
       this.getCurrentQuestion();
       console.log(this.question + "C'est la question");
-      
+
     });
   }
 
@@ -35,39 +35,41 @@ export class GamePage {
     this.compteur++;
     this.question = this.questions.find(item => item.questionId === this.compteur);
     //console.log(this.questions.length+ " zzzz " +  this.compteur);
-    
+
     if (this.compteur > this.questions.length) {
       console.log('Je passe if');
-       console.log(this.questions.length+ " zzzz " +  this.compteur);
-       this.nav.push(ResultPage, {key:this.compteurScore});
+      console.log(this.questions.length + " zzzz " + this.compteur);
+      this.nav.push(ResultPage, { key: this.compteurScore });
     }
   }
 
   getAnswer(id: number) {
     console.log(id);
     console.log(this.question.rightAnswer);
+    let alert;
 
     if (this.question.rightAnswer === id) {
-      let alert = this.alertCtrl.create({
+      alert = this.alertCtrl.create({
         title: 'Bonne réponse',
-        subTitle: 'Bien joué',
-        buttons: ['Fermer']
+        subTitle: 'Bien joué'
       });
       alert.present();
-      
-     
+
     } else {
-      let alert = this.alertCtrl.create({
+      alert = this.alertCtrl.create({
         title: 'Mauvaise réponse',
-        subTitle: 'Tu reviens à la case départ',
-        buttons: ['Fermer']
+        subTitle: 'Tu reviens à la case départ'
       });
       alert.present();
       this.compteurScore += 1;
       this.compteur = 0;//Retour à la première question
     }
-    this.getCurrentQuestion();
 
+    setTimeout(() => {
+      this.getCurrentQuestion()
+      alert.dismiss()
+    }
+      , 1500)
   }
 }
 
