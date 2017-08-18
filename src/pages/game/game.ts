@@ -23,22 +23,14 @@ export class GamePage {
   ngOnInit() {
     this._Questions.findAll().then(res => {
       this.questions = res;
-
       this.getCurrentQuestion();
-      console.log(this.question + "C'est la question");
-
     });
   }
 
   getCurrentQuestion() {
-
     this.compteur++;
-    this.question = this.questions.find(item => item.questionId === this.compteur);
-    //console.log(this.questions.length+ " zzzz " +  this.compteur);
-
-    if (this.compteur > this.questions.length) {
-      console.log('Je passe if');
-      console.log(this.questions.length + " zzzz " + this.compteur);
+    this.question = this.questions.find(item => item.questionId === this.compteur);    
+    if (this.compteur > this.questions.length) {  
       this.nav.push(ResultPage, { key: this.compteurScore });
     }
   }
@@ -54,7 +46,6 @@ export class GamePage {
         subTitle: 'Bien joué'
       });
       alert.present();
-
     } else {
       alert = this.alertCtrl.create({
         title: 'Mauvaise réponse',
@@ -71,6 +62,8 @@ export class GamePage {
     }
       , 1500)
   }
+
+  
 }
 
 
