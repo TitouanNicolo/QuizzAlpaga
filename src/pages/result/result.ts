@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, IonicPage, NavParams} from 'ionic-angular';
-import { GamePage } from '../game/game';
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -14,9 +14,9 @@ this.score = this.navParams.get('key');
  
   }
  
-     goToGame(params){
+     goToHome(params){
     if (!params) params = {};
-    this.navCtrl.push(GamePage);
+    this.navCtrl.push(HomePage);
   }
 
 }
